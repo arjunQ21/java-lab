@@ -42,14 +42,15 @@ class Calculator extends Frame implements ActionListener{
     		case "8":
     		case "9":
     		case ".":
-    			appendInput(clicked) ;
+    			currentInput += number ; 
     			show(currentInput) ;
     			break ;
     		case "+":
     		case "-":
     		case "*":
     		case "/":
-    			addNewOperation(clicked) ;
+    			calculate() ;
+    			operation = clicked ;
     			break ;
     		case "E":
     			calculate() ;
@@ -88,18 +89,11 @@ class Calculator extends Frame implements ActionListener{
     	show(lastResult) ;
     	currentInput = "" ;
     }
-    public void addNewOperation(String sign){
-    	calculate() ;
-    	operation = sign ;
-    }
     public void show(int no){
     	show(Integer.toString(no)) ;
     }
     public void show(String str){
     	tf.setText(str) ;
-    }
-    public void appendInput(String number){
-    	currentInput += number ; 
     }
     public static void main(String[] args){
         new Calculator() ;
